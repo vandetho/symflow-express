@@ -37,7 +37,7 @@ router.post("/:id/transition", async (req: Request, res: Response): Promise<void
             res.status(404).json({ error: "Article not found" });
             return;
         }
-console.log({ article: article.get({ plain: true }), transition });
+
         if (!await ArticleWorkflow.canTransition(article, transition)) {
             res.status(400).json({ error: "Transition not allowed" });
             return;
