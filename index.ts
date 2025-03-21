@@ -4,6 +4,7 @@ import helmet from "helmet";
 import cors from "cors";
 import { sequelize } from "./models";
 import articleRoutes from "./routes/articles";
+import taskRoutes from "./routes/tasks";
 
 export const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,6 +20,7 @@ sequelize.sync({ force: true }).then(() => {
 });
 
 app.use("/articles", articleRoutes);
+app.use("/tasks", taskRoutes);
 
 
 if (process.env.NODE_ENV !== "test") {

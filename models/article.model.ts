@@ -12,11 +12,11 @@ export interface ArticleAttributes {
 // ✅ Define optional fields for creation (ID is auto-generated)
 interface ArticleCreationAttributes extends Optional<ArticleAttributes, "id"> {}
 
-export class Article extends Model<ArticleAttributes, ArticleCreationAttributes> {
+export class ArticleModel extends Model<ArticleAttributes, ArticleCreationAttributes> {
     declare states: string[];
 }
 
-Article.init(
+ArticleModel.init(
     {
         id: {
             type: DataTypes.INTEGER,

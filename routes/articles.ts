@@ -1,5 +1,5 @@
 import express, { Request, Response, Router } from "express";
-import { Article } from "../models/article";
+import { ArticleModel } from "../models/article.model";
 import { ArticleWorkflow } from "../workflows/article.workflow";
 
 const router: Router = express.Router();
@@ -7,7 +7,7 @@ const router: Router = express.Router();
 // ✅ Get all articles
 router.get("/", async (_: Request, res: Response): Promise<void> => {
     try {
-        const articles = await Article.findAll();
+        const articles = await ArticleModel.findAll();
         res.json(articles); // ✅ No return statement
     } catch (error) {
         console.error("Error fetching articles:", error);
@@ -19,7 +19,7 @@ router.get("/", async (_: Request, res: Response): Promise<void> => {
 router.post("/", async (req: Request, res: Response): Promise<void> => {
     try {
         const { title, content } = req.body;
-        const article = await Article.create({ title, content, states: ["draft"] });
+        const article = await ArticleModel.create({ title, content, states: ["draft"] });
         res.json(article); // ✅ No return statement
     } catch (error) {
         console.error("Error creating article:", error);
@@ -31,7 +31,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
 router.post("/:id/transition", async (req: Request, res: Response): Promise<void> => {
     try {
         const { transition } = req.body;
-        const article = await Article.findByPk(req.params.id);
+        const article = await ArticleModel.findByPk(req.params.id);
 
         if (!article) {
             res.status(404).json({ error: "Article not found" });
@@ -57,7 +57,7 @@ router.post("/:id/transition", async (req: Request, res: Response): Promise<void
 // ✅ Get article by ID
 router.get("/:id", async (req: Request, res: Response): Promise<void> => {
     try {
-        const article = await Article.findByPk(req.params.id);
+        const article = await ArticleModel.findByPk(req.params.id);
         if (!article) {
             res.status(404).json({ error: "Article not found" });
             return;
@@ -72,7 +72,7 @@ router.get("/:id", async (req: Request, res: Response): Promise<void> => {
 // ✅ Delete article
 router.delete("/:id", async (req: Request, res: Response): Promise<void> => {
     try {
-        const article = await Article.findByPk(req.params.id);
+        const article = await ArticleModel.findByPk(req.params.id);
         if (!article) {
             res.status(404).json({ error: "Article not found" });
             return;
