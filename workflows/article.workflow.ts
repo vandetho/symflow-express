@@ -41,8 +41,7 @@ const articleWorkflowDefinition: WorkflowDefinition<ArticleModel> = {
             from: 'approved by journalist',
             to: 'published',
         },
-
-        publish_from_spellcheck: {
+        publish_from_spellchecker: {
             from: 'approved by spellchecker',
             to: 'published',
         },

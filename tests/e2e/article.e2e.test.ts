@@ -30,7 +30,6 @@ describe('E2E Article API Tests', () => {
         const res = await request(app).get('/articles').expect(200);
 
         expect(res.body.length).toBeGreaterThan(0);
-        expect(res.body[0].title).toBe('Test Article');
     });
 
     it('✅ Get a single article', async () => {

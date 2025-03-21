@@ -43,6 +43,7 @@ describe("🚦 Task State Machine E2E", () => {
     });
 
     it("❌ Should not allow going back to in_progress", async () => {
+        console.log(taskId);
         await request(app)
             .post(`/tasks/${taskId}/transition`)
             .send({ transition: "start" })
