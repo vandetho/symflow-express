@@ -4,12 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "npx ts-node index.ts",
+        "start": "npx ts-node examples/sequelize/index.ts",
         "build": "tsc",
-        "dev": "npx ts-node-dev index.ts",
+        "dev": "npx ts-node-dev examples/sequelize/index.ts",
         "test": "jest",
         "test:watch": "jest --watchAll",
-        "test:e2e": "jest tests/e2e"
+        "test:e2e": "jest examples/sequelize/tests/e2e"
     },
     "keywords": [],
     "author": "",
