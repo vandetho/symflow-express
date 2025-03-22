@@ -21,14 +21,14 @@
         "express": "^4.21.2",
         "helmet": "^8.1.0",
         "sequelize": "^6.37.6",
-        "symflow": "^1.15.1"
+        "symflow": "^1.16.0"
     },
     "devDependencies": {
         "@tsconfig/node22": "^22.0.0",
         "@types/cors": "^2.8.17",
         "@types/express": "^5.0.1",
         "@types/jest": "^29.5.14",
-        "@types/node": "^22.13.10",
+        "@types/node": "^22.13.11",
         "@types/sequelize": "^4.28.20",
         "@types/sqlite3": "^3.1.11",
         "@types/supertest": "^6.0.2",
